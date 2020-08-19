@@ -12,7 +12,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#222222";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -71,11 +71,18 @@ static const char *dmenucmd[] = { "dmenu_run",
                                     "-sf", col_gray4, NULL
                                 };
 static const char *termcmd[] = { "gnome-terminal", NULL };
+static const char *vscodecmd[] = {"/snap/bin/code", NULL};
+static const char *spotifycmd[] = {"/snap/bin/spotify", NULL};
+static const char *bravecmd[] = {"/snap/bin/brave", NULL};
+
 
 static Key keys[] = {
   /* modifier,        key,       function,       argument */
   { MODKEY,           XK_r,      spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask, XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY|ShiftMask, XK_v,      spawn,          {.v = vscodecmd}},
+  { MODKEY|ShiftMask, XK_s,      spawn,          {.v = spotifycmd}},
+  { MODKEY|ShiftMask, XK_w,      spawn,          {.v = bravecmd}},
   { MODKEY,           XK_b,      togglebar,      {0} },
   { MODKEY,           XK_j,      focusstack,     {.i = +1 } },
   { MODKEY,           XK_k,      focusstack,     {.i = -1 } },
